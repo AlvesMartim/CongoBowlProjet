@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}CongoBowl - HomePage{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<header class="bg-dark text-white text-center py-5">
+    <h1 class="display-4">Bienvenue chez <span style="color: #FFD700;">CongoBowl</span></h1>
+    <p class="lead">Découvrez l'authenticité de la cuisine congolaise</p>
+    <!-- Déplacement du bouton ici -->
+    <button type="button" class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#menuModal">
+        Voir le Menu
+    </button>
+</header>
+
+<main class="container my-5">
+    <section class="text-center mb-5">
+        {% if pseudo %}
+            <h2 class="fw-bold mb-3">Bonjour, {{ request.session.utilisateur_pseudo }}</h2>
+            <a href="{% url 'log_out' %}" class="btn btn-warning">Déconnexion</a>
+        {% else %}
+            <h2 class="fw-bold mb-3">Bienvenue sur CongoBowl</h2>
+            <p><i>Veuillez vous inscrire ou vous connecter pour découvrir nos délicieux plats.</i></p>
+        {% endif %}
+    </section>
+
+    <section class="text-center mb-5">
+        <h2 class="fw-bold mb-3">Qui sommes-nous ?</h2>
+        <p class="fs-5">
+            Chez <strong>Congo Bowl</strong>, nous avons une mission : faire découvrir au monde la richesse et les saveurs uniques 
+            de la gastronomie congolaise. Né d’une passion familiale, notre concept vise à partager une partie de notre culture 
+            à travers des plats authentiques, préparés avec soin et amour.
+        </p>
+    </section>
+
+    <section class="text-center mb-5">
+        <h2 class="fw-bold mb-3">Notre Histoire</h2>
+        <p class="fs-5">
+            Congo Bowl, c’est l’histoire d’une famille congolaise qui a décidé de célébrer ses racines et de les mettre en lumière 
+            à travers un concept culinaire moderne et chaleureux. Inspirés par les recettes traditionnelles transmises de génération 
+            en génération, nous avons créé un espace où chacun peut savourer la richesse de nos plats, qu’il s’agisse de classiques 
+            emblématiques ou de créations revisitées avec une touche contemporaine.
+        </p>
+    </section>
+
+    <section class="text-center mb-5">
+        <h2 class="fw-bold mb-3">Un Voyage Culinaire au Cœur du Congo</h2>
+        <p class="fs-5">
+            Chaque bol servi raconte une histoire, celle d’une cuisine généreuse et conviviale, riche en épices, en saveurs 
+            et en histoire. Nos ingrédients sont soigneusement sélectionnés pour offrir une expérience authentique et inoubliable, 
+            mettant à l’honneur la diversité culinaire du Congo.
+        </p>
+    </section>
+
+    <section class="text-center mb-5">
+        <p class="fs-5"><strong>Bienvenue chez nous, et bon appétit !</strong></p>
+    </section>
+
+    <!-- Modal Bootstrap -->
+    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="menuModalLabel">Menu CongoBowl</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="{% static 'images/Menu.JPG' %}" alt="Menu CongoBowl" class="img-fluid rounded">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div class="mb-5"></div>
+
+{% endblock %}

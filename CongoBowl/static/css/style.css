@@ -1,0 +1,81 @@
+/* CSS pour la mise en page */
+body {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* S'assure que le contenu principal prend toute la hauteur restante */
+    padding-bottom: 100px; /* Ajouter de l'espace au bas pour que le contenu ne soit pas caché par le footer */
+}
+
+footer {
+    background-color: #635748;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
+
+footer ul {
+    padding: 0;
+    list-style: none;
+    margin: 10px 0 0;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #1a1a1a;
+    color: #FFD700;
+    border-radius: 8px;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+button.btn-warning {
+    color: #000;
+    font-size: 1.2rem;
+}
+
+/* NavBar Styling */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #FFD700; /* Changement de couleur au survol */
+}
+
+.articles-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.article-item {
+    padding: 10px;
+    border: 1px solid #0085CA;
+    border-radius: 5px;
+    text-align: center;
+}

@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Inscription | CongoBowl</title>
+    <style>
+        /* Fond d'écran avec l'image */
+        body {
+            background-image: url("{% static 'images/foret-bassin-congo.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.6); /* Fond sombre transparent */
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 100px auto;
+        }
+
+        .form-container h2 {
+            color: #FFD700; /* Couleur dorée pour le titre */
+        }
+
+        /* Texte en blanc pour tout le formulaire */
+        .form-container label,
+        .form-container p,
+        .form-container button {
+            color: white; /* Texte blanc */
+        }
+
+        .form-container button {
+            background-color: #FFD700;
+            border: none;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #e0a800;
+        }
+
+        .form-container a {
+            color: #FFD700;
+        }
+
+        .form-container a:hover {
+            color: #e0a800;
+        }
+        .form-container input { 
+            color: black;  
+            background-color: white;  
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center">S'inscrire</h2>
+            <form method="post" action="{% url 'sign_in' %}">
+                <fieldset>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="btn btn-warning">S'inscrire</button>
+                </fieldset>
+            </form>
+            <p class="text-center mt-3">
+                Vous avez déjà un compte? Cliquez <a href="{% url 'log_in' %}">ici</a>.
+            </p>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
